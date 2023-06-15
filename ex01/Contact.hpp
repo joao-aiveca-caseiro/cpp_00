@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:53:54 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/06/14 21:15:07 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:55:22 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 class Contact
 {
 	public:
-		
-		// Contact();
-		
+			
 		std::string	getFirstname(void) const;
 		std::string	getLastname(void) const;
 		std::string	getNickname(void) const;

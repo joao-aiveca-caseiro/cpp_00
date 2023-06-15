@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:54:03 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/06/13 19:04:19 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/06/15 01:28:39 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <cctype>
 
 class PhoneBook
 {
@@ -24,8 +25,9 @@ class PhoneBook
 		
 		PhoneBook();
 
-		void	add_contact(void);
-		void	search_contact(void);
+		void		add_contact(void);
+		void		search_contact(void);
+		std::string	truncate(std::string str);
 		
 	private:
 		

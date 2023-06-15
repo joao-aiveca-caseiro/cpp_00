@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:54:00 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/06/13 19:35:21 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/06/15 02:54:30 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 PhoneBook::PhoneBook()
 {
 	this->_count = 0;
+}
+
+std::string	PhoneBook::truncate(std::string str)
+{
+	if (str.length() > 10)
+		return (str.substr(0, 9) + ".");
+	else
+		return (str);
 }
 
 void	PhoneBook::add_contact(void)
@@ -54,7 +62,7 @@ void	PhoneBook::add_contact(void)
 	std::cin >> secret;
 	new_contact.setSecret(secret);
 	
-	this->_contacts[this->_count % 8];
+	this->_contacts[this->_count % 8] = new_contact;
 	this->_count++;
 
 	std::cout << "Contact successfully added with index "<< this->_count - 1 <<"" << std::endl;
@@ -62,10 +70,12 @@ void	PhoneBook::add_contact(void)
 
 void	PhoneBook::search_contact(void)
 {
+	int	valid = 0;
 	int	i = -1;
-	std::string separator = "_____________________________________________";
+	std::string	index;
+	std::string separator = "|__________|__________|__________|__________|";
 	
-	std::cout << separator << std::endl;
+	std::cout << std::endl;
 	std::cout << "|" << std::setw(10) << "INDEX"
 			<< "|" << std::setw(10) << "FIRST NAME"
 			<< "|" << std::setw(10) << "LAST NAME"
@@ -75,9 +85,23 @@ void	PhoneBook::search_contact(void)
 	while (++i < this->_count)
 	{
 		std::cout << "|" << std::setw(10) << i
-				<< "|" << std::setw(10) << this->_contacts[i].getFirstname()
-				<< "|" << std::setw(10) << "LAST NAME"
-				<< "|" << std::setw(10) << " NICKNAME" 
+				<< "|" << std::setw(10) << this->truncate(this->_contacts[i].getFirstname())
+				<< "|" << std::setw(10) << this->truncate(this->_contacts[i].getLastname())
+				<< "|" << std::setw(10) << this->truncate(this->_contacts[i].getNickname())
 				<< "|" << std::endl;		
+	}
+	std::cout << std::endl;
+	
+	while (valid == 0)
+	{
+		std::cout << "Please enter the index of the contact you wish to display." << std::endl;
+		std::cout << ">";
+		std::cin >> index;
+		if (index.find_first_not_of("0123456789") != -1 || (atoi(index.c_str()) < 0 || atoi(index.c_str()) > 7))
+			std::cout << "Invalid input. Please enter a number between 0 and 7." << std::endl;		
+		else if (atoi(index.c_str()) > this->_count - 1)
+			std::cout << "There's no contact with index " << index << ". Please try again." << std::endl;			
+		else
+			valid = 1;				
 	}
 }

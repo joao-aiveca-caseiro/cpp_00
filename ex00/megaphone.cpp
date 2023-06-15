@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:47:44 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/06/11 15:40:09 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/06/14 20:31:07 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	main(int argc, char **argv)
 		{
 			while (argv[i][++j])
 				std::cout << (char)toupper(argv[i][j]);
-			// if (argv[i + 1] && argv[i + 1][0] && argv[i + 1][0] != 32)
-			// 	std::cout << " ";
+			if (argv[i][j - 1] != 32 && (argv[i + 1] 
+				&& argv[i + 1][0] && argv[i + 1][0] != 32))
+				std::cout << " ";
 			j = -1;
 		}
 		std::cout << std::endl;	

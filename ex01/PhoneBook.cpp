@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:54:00 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/06/15 16:18:13 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:26:37 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	PhoneBook::add_contact(void)
 
 	std::cout << "Phone number: ";
 	std::cin >> phone;
-	while (phone.find_first_of("0123456789") == -1)
+	while (phone.find_first_not_of("0123456789") != -1)
 	{
 		std::cout << "❌ Invalid input. Please insert digits only. ❌" << std::endl;
 		std::cout << "Phone number: ";

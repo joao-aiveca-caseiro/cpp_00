@@ -1,7 +1,7 @@
 SRCS		= Account.cpp tests.cpp
 INCS		= Account.hpp
 OBJS		= ${SRCS:.cpp=.o}
-NAME		= phonebook
+NAME		= account
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 

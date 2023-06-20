@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:54:00 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/06/16 14:26:37 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:02:22 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,11 @@ void	PhoneBook::add_contact(void)
 	new_contact.setPhone(phone);
 
 	std::cout << "Darkest secret: ";
-	std::cin >> secret;
-	new_contact.setSecret(secret);
+	while (secret.empty())
+	{
+		std::getline(std::cin, secret);
+		new_contact.setSecret(secret);
+	}
 	
 	this->_contacts[this->_count % 8] = new_contact;
 	this->_count++;

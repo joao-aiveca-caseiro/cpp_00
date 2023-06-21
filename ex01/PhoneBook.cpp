@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:54:00 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/06/20 15:02:22 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:17:48 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,28 @@ void	PhoneBook::add_contact(void)
 	std::cout << "You are adding a new contact. Please fill its details:\n" << std::endl;
 	
 	std::cout << "First name: ";
-	std::cin >> firstname;
-	new_contact.setFirstname(firstname);
-
+	while (firstname.empty())
+	{
+		std::getline(std::cin, firstname);
+		new_contact.setFirstname(firstname);
+	}
 	std::cout << "Last name: ";
-	std::cin >> lastname;
-	new_contact.setLastname(lastname);
-
+	while (lastname.empty())
+	{
+		std::getline(std::cin, lastname);
+		new_contact.setLastname(lastname);
+	}
 	std::cout << "Nickname: ";
-	std::cin >> nickname;
-	new_contact.setNickname(nickname);
-
+	while (nickname.empty())
+	{
+		std::getline(std::cin, nickname);
+		new_contact.setNickname(nickname);
+	}
 	std::cout << "Phone number: ";
-	std::cin >> phone;
+	while (phone.empty())
+	{
+		std::getline(std::cin, phone);
+	}
 	while (phone.find_first_not_of("0123456789") != -1)
 	{
 		std::cout << "❌ Invalid input. Please insert digits only. ❌" << std::endl;
